@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:inovathon_2022/ui/screen/home/home_page.dart';
 
+import '../../../components/shared_input.dart';
+
 class HomeWidget extends State<HomePage> {
   int _counter = 0;
 
@@ -27,6 +29,10 @@ class HomeWidget extends State<HomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
             ),
+            SharedTextInput(
+              hintText: 'E-mail',
+              keyboardType: TextInputType.emailAddress,
+            )
           ],
         ),
       ),
