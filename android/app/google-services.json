@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "580990137643",
+    "project_id": "inovathon-boomers-2022",
+    "storage_bucket": "inovathon-boomers-2022.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:580990137643:android:4e897592b769d142b7416e",
+        "android_client_info": {
+          "package_name": "com.boomers.inovathon_2022"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "580990137643-lk5femh61t6a98qri1j0211inh5p77g5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQINL4I-wXlhcGsuaJ0zP3oDbHIXEBAUQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "580990137643-lk5femh61t6a98qri1j0211inh5p77g5.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "580990137643-iqdk6urobbk8rlim721e60qt69l9ndre.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.boomers.inovathon2022"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
