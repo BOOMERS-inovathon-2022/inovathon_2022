@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.lightGreen,
       ),
-      home: const HomePage(title: 'Inovathon 2022'),
+      home: HomePage(),
     );
   }
 }
