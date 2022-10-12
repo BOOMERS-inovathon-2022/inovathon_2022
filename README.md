@@ -1,16 +1,19 @@
-# inovathon_2022
+# InovaThon 2022
 
-Projeto para a Inovathon 2022, parte da Inovatech
+Projeto para a InovaThon 2022, evento parte da InovaTech.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## Equipe
 
-A few resources to get you started if this is your first Flutter project:
+- [Andrey Silva Cordeiro](https://github.com/AndreyCordeiro)
+- [João Gabriel Durante Marques de Lima](https://github.com/jgdml)
+- [Rafael Matheus Bicario](https://github.com/rafaelbicario)
+- [Kairo Vinicius Losano Amorim](https://github.com/kairo741)
+- Larissa Oliveira de Santos
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+---
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Tema
+
+- Agricultura Familiar
