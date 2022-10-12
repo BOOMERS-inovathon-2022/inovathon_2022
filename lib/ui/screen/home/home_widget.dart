@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:inovathon_2022/ui/screen/home/home_page.dart';
 
-import '../../../components/shared_input.dart';
+import '../../shared/shared_input.dart';
 
 class HomeWidget extends State<HomePage> {
   @override
