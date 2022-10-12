@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:inovathon_2022/ui/screen/home/home_page.dart';
 
-import '../../shared/shared_input.dart';
-
 class HomeWidget extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
@@ -12,15 +10,6 @@ class HomeWidget extends State<HomePage> {
           backgroundColor: Colors.transparent,
           shadowColor: Colors.transparent,
           elevation: 0,
-          leading: CircleAvatar(
-            backgroundColor: Colors.white,
-            radius: 10,
-            child: IconButton(
-              onPressed: () => null,
-              icon: const Icon(Icons.menu),
-              color: Colors.black,
-            ),
-          ),
           actions: [
             CircleAvatar(
               backgroundColor: Colors.white,
@@ -31,10 +20,6 @@ class HomeWidget extends State<HomePage> {
                 color: Colors.black,
               ),
             ),
-            SharedTextInput(
-              hintText: 'E-mail',
-              keyboardType: TextInputType.emailAddress,
-            )
           ],
         ),
         body: Container(
