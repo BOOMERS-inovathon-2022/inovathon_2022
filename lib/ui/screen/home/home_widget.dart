@@ -11,6 +11,7 @@ class HomeWidget extends State<HomePage> {
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           shadowColor: Colors.transparent,
+          elevation: 0,
           leading: CircleAvatar(
             backgroundColor: Colors.white,
             radius: 10,
@@ -72,6 +73,7 @@ class HomeWidget extends State<HomePage> {
                   child: GridView.builder(
                     itemCount: 5,
                     shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
                     gridDelegate:
                         const SliverGridDelegateWithMaxCrossAxisExtent(
                       maxCrossAxisExtent: 200,
@@ -83,7 +85,7 @@ class HomeWidget extends State<HomePage> {
                         onTap: () => null,
                         child: Ink(
                           decoration: BoxDecoration(
-                              border: Border.all(color: Colors.grey.shade300),
+                              border: Border.all(color: Colors.grey.shade400),
                               borderRadius: BorderRadius.circular(15)),
                           child: Column(
                             children: [
