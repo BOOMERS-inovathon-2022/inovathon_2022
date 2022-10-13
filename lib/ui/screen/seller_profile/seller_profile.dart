@@ -12,7 +12,15 @@ class SellerProfile extends StatefulWidget {
   State<SellerProfile> createState() => _SellerProfileState();
 }
 
-class _SellerProfileState extends State<SellerProfile> {
+class _SellerProfileState extends State<SellerProfile> with TickerProviderStateMixin {
+  late TabController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = TabController(length: 2, vsync: this);
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -43,7 +51,7 @@ class _SellerProfileState extends State<SellerProfile> {
                       Row(
                         children: const [
                           Text(
-                            "Manoel Gomes",
+                            "Manoel Gomes", // TODO - corrigir overflow
                             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 33),
                           ),
                           SizedBox(
@@ -75,13 +83,32 @@ class _SellerProfileState extends State<SellerProfile> {
                 ],
               ),
             ),
-            Expanded(child: SellerDetailsPage()),
-            SizedBox(
-              height: 40,
-            )
+            const SizedBox(
+              height: 10,
+            ),
+            tabBar(),
+            Expanded(
+              child: TabBarView(
+                controller: _controller,
+                children: const [SellerDetailsPage(), Text("asdasdasd")],
+              ),
+            ),
+
+            // SizedBox(
+            //   height: 40,
+            // )
           ]),
         ),
       ),
     );
   }
+
+  Widget tabBar() => TabBar(
+        controller: _controller,
+        unselectedLabelColor: Colors.grey,
+        tabs: const [
+          Text("Sobre mim"),
+          Text("Horários"),
+        ],
+      );
 }
