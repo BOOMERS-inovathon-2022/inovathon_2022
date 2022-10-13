@@ -1,4 +1,4 @@
-import 'package:inovathon_2022/core/entity/user.dart';
+import 'package:inovathon_2022/core/model/entity/user.dart';
 
 class UserSeller {
   late User user;

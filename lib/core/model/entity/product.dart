@@ -1,5 +1,7 @@
-import 'package:inovathon_2022/core/entity/category.dart';
-import 'package:inovathon_2022/core/entity/user_seller.dart';
+
+
+import 'package:inovathon_2022/core/model/entity/category.dart';
+import 'package:inovathon_2022/core/model/entity/user_seller.dart';
 
 class Product {
   late String? id;

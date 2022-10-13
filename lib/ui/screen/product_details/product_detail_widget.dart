@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:inovathon_2022/core/entity/user_seller.dart';
+import 'package:inovathon_2022/core/model/entity/user_seller.dart';
 import 'package:inovathon_2022/ui/screen/product_details/product_detail_page.dart';
 
 import '../../shared/shared_button.dart';
@@ -108,7 +108,7 @@ class ProductDetailWidget extends State<ProductDetailPage> {
 }
 
 class SellerProductList extends StatelessWidget {
-  SellerProductList({this.sellerList});
+  SellerProductList({super.key, this.sellerList});
 
   List<UserSeller>? sellerList;
 
@@ -138,7 +138,7 @@ class SellerProductList extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 20),
                     child: ListTile(
-                      leading: CircleAvatar(child: Icon(Icons.person)),
+                      leading: const CircleAvatar(child: Icon(Icons.person)),
                       title: const Text(
                         "Markus Chico",
                         style: TextStyle(
@@ -169,7 +169,7 @@ class SellerProductList extends StatelessWidget {
                   ),
                   const Padding(
                     padding: EdgeInsets.symmetric(horizontal: 20),
-                    child: const Divider(height: 5),
+                    child: Divider(height: 5),
                   ),
                 ],
               );

@@ -1,4 +1,4 @@
-import 'package:inovathon_2022/core/entity/state.dart';
+import 'package:inovathon_2022/core/model/entity/state.dart';
 
 class City {
   late String name;

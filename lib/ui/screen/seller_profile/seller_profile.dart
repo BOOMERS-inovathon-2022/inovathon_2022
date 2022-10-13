@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:inovathon_2022/core/entity/user_seller.dart';
+import 'package:inovathon_2022/core/model/entity/user_seller.dart';
 import 'package:inovathon_2022/ui/screen/seller_profile/components/seller_tag.dart';
 import 'package:inovathon_2022/ui/screen/seller_profile/seller_details/seller_details_page.dart';
 
