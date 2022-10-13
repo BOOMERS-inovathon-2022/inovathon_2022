@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:inovathon_2022/ui/screen/home/home_page.dart';
+import 'package:inovathon_2022/ui/shared/function_widgets.dart';
 
 import '../../theme/custom_router.dart';
 import '../product_details/product_detail_page.dart';
@@ -9,6 +10,12 @@ class HomeWidget extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        title: const Text(
+          'Início',
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
         actions: [
           IconButton(
             onPressed: () => null,
@@ -62,14 +69,20 @@ class HomeWidget extends State<HomePage> {
                     maxCrossAxisExtent: 200,
                     mainAxisExtent: 190,
                     crossAxisSpacing: 10,
-                    mainAxisSpacing: 10
+                    mainAxisSpacing: 10,
                   ),
                   itemBuilder: (context, index) {
                     return InkWell(
-                      onTap: () => CustomRouter.pushPage(
-                        context,
-                        ProductDetailPage(),
-                      ),
+                      onTap: () async {
+                        FunctionWidgets().showLoading(context);
+                        await Future.delayed(const Duration(seconds: 1));
+                        Navigator.of(context).pop();
+
+                        CustomRouter.pushPage(
+                          context,
+                          ProductDetailPage(),
+                        );
+                      },
                       child: Ink(
                         decoration: BoxDecoration(
                           border: Border.all(color: Colors.grey.shade400),

@@ -4,6 +4,7 @@ import 'package:inovathon_2022/core/model/dto/schedule_time_dto.dart';
 import 'package:inovathon_2022/core/model/enums/day_of_week_enum.dart';
 import 'package:inovathon_2022/ui/screen/seller_profile/components/title_divider.dart';
 import 'package:inovathon_2022/ui/screen/seller_profile/seller_schedule/seller_schedule_page.dart';
+import 'package:inovathon_2022/ui/shared/function_widgets.dart';
 import 'package:inovathon_2022/ui/shared/shared_button.dart';
 import 'package:inovathon_2022/ui/shared/shared_counter.dart';
 import 'package:inovathon_2022/ui/theme/colors.dart';
@@ -327,7 +328,8 @@ class _ProductCheckoutModalState extends State<ProductCheckoutModal> {
         ),
         Padding(
           padding: const EdgeInsets.all(20),
-          child: SharedButton(text: "Comprar", onClickAction: () => null),
+          child: SharedButton(
+              text: "Comprar", onClickAction: () => FunctionWidgets().showLoading(context)),
         )
       ],
     );

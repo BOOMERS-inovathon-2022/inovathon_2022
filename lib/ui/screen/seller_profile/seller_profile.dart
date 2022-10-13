@@ -16,7 +16,8 @@ class SellerProfile extends StatefulWidget {
   State<SellerProfile> createState() => _SellerProfileState();
 }
 
-class _SellerProfileState extends State<SellerProfile> with TickerProviderStateMixin {
+class _SellerProfileState extends State<SellerProfile>
+    with TickerProviderStateMixin {
   late TabController _controller;
 
   @override
@@ -48,7 +49,14 @@ class _SellerProfileState extends State<SellerProfile> with TickerProviderStateM
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(),
+        appBar: AppBar(
+          title: const Text(
+            'Perfil do Vendedor',
+            style: TextStyle(
+              color: Colors.white,
+            ),
+          ),
+        ),
         body: Padding(
           padding: const EdgeInsets.symmetric(vertical: 10),
           child: Column(
@@ -113,7 +121,10 @@ class _SellerProfileState extends State<SellerProfile> with TickerProviderStateM
               Expanded(
                 child: TabBarView(
                   controller: _controller,
-                  children: [const SellerDetailsPage(), SellerSchedulePage(schedule: schedules)],
+                  children: [
+                    const SellerDetailsPage(),
+                    SellerSchedulePage(schedule: schedules)
+                  ],
                 ),
               ),
             ],

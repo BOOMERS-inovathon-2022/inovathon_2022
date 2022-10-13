@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:inovathon_2022/core/model/dto/seller_dto.dart';
-import 'package:inovathon_2022/core/model/entity/user_seller.dart';
 import 'package:inovathon_2022/ui/screen/product_details/product_detail_page.dart';
 
 import '../../shared/shared_button.dart';
@@ -12,7 +11,14 @@ class ProductDetailWidget extends State<ProductDetailPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(),
+        appBar: AppBar(
+          title: const Text(
+            'Detalhes do Produto',
+            style: TextStyle(
+              color: Colors.white,
+            ),
+          ),
+        ),
         body: ListView(
           children: [
             const Image(
