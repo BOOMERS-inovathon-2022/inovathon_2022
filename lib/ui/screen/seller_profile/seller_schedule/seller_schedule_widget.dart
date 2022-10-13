@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:inovathon_2022/ui/screen/seller/seller_schedule/seller_schedule_page.dart';
+import 'package:inovathon_2022/ui/screen/seller_profile/seller_schedule/seller_schedule_page.dart';
 
 class SellerScheduleWidget extends State<SellerSchedulePage> {
   @override
