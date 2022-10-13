@@ -11,7 +11,7 @@ class HomeWidget extends State<HomePage> {
     ProductListingDTO(
       id: "",
       name: "Alface",
-      description: "",
+      description: "Alface é uma hortense anual ou bienal, utilizada na alimentação humana desde cerca de 500 a.C.. Originária do Leste do Mediterrâneo, é mundialmente cultivada para o consumo em saladas, com inúmeras variedades de folhas, cores, formas, tamanhos e texturas.",
       photo:
           "https://superprix.vteximg.com.br/arquivos/ids/178850-600-600/Alface-Crespa-Verde-Un-396.png?v=636934628540170000",
       measure: "Unid",
@@ -20,7 +20,7 @@ class HomeWidget extends State<HomePage> {
     ProductListingDTO(
       id: "",
       name: "Tomate",
-      description: "",
+      description: "O tomate é uma fruta, apesar de normalmente ser usado como legume em saladas e pratos quentes. Seu nome científico é Lycopersicum esculentum L e é uma fruta rica em vitamina C, A, K, potássio e licopeno, que é um potente antioxidante.",
       photo:
           "http://d3ugyf2ht6aenh.cloudfront.net/stores/746/397/products/tomate-longa-vida1-e12545f3c4985942a915417674167711-640-0.png",
       measure: "Kg",
@@ -29,7 +29,7 @@ class HomeWidget extends State<HomePage> {
     ProductListingDTO(
       id: "",
       name: "Cebola",
-      description: "",
+      description: "A cebola (Allium cepa) é uma hortaliça de grande consumo em todo o mundo. A mesma é originária da Ásia Central, tendo sido cultiva na Índia e na China desde tempos remotos e levada para a Pérsia, onde se propagou por toda a África e Europa. A cebola foi trazida para o Brasil pelos colonizadores portugueses.",
       photo:
           "https://static1.conquistesuavida.com.br/ingredients/9/54/26/69/@/24722--ingredient_detail_ingredient-2.png",
       measure: "Kg",
