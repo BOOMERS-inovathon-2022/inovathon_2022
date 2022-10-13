@@ -6,11 +6,12 @@ class User {
   late String phone;
   late String photoUrl;
 
-  User(
-      {required this.id,
-      required this.name,
-      required this.email,
-      required this.password,
-      required this.phone,
-      required this.photoUrl});
+  User({
+    this.id,
+    required this.name,
+    required this.email,
+    required this.password,
+    required this.phone,
+    required this.photoUrl,
+  });
 }

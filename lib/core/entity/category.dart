@@ -4,5 +4,10 @@ class Category {
   late String description;
   late String photoUrl;
 
-  Category({this.id, required this.name, required this.description, required this.photoUrl});
+  Category({
+    this.id,
+    required this.name,
+    required this.description,
+    required this.photoUrl,
+  });
 }
