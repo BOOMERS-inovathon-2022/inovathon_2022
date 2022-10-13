@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:inovathon_2022/ui/screen/home/home_page.dart';
+import 'package:inovathon_2022/ui/screen/home/bottom-navigation-bar.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.lightGreen,
       ),
-      home: HomePage(),
+      home: CustomBottomNavigationBar(),
     );
   }
 }

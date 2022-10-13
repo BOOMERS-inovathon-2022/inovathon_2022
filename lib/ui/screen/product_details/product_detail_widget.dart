@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:inovathon_2022/core/model/entity/user_seller.dart';
+import 'package:inovathon_2022/core/model/dto/seller_dto.dart';
 import 'package:inovathon_2022/ui/screen/product_details/product_detail_page.dart';
 
 import '../../shared/shared_button.dart';
@@ -104,7 +104,22 @@ class ProductDetailWidget extends State<ProductDetailPage> {
                     context: context,
                     builder: (context) => FractionallySizedBox(
                       heightFactor: 0.85,
-                      child: SellerProductList(),
+                      child: SellerProductList([
+                        SellerDTO(
+                          id: "",
+                          name: "Manoel Gomes",
+                          isOrganic: true,
+                          photo:
+                              "https://i1.sndcdn.com/artworks-lq81iGn8UqOkdpTt-IawAKw-t500x500.jpg",
+                        ),
+                        SellerDTO(
+                          id: "",
+                          name: "José",
+                          isOrganic: false,
+                          photo:
+                              "https://yt3.ggpht.com/ytc/AMLnZu_y_cp7lzmb7b3fYsdFDncu0OdEqh_YJh7J0k-g=s900-c-k-c0x00ffffff-no-rj",
+                        ),
+                      ]),
                     ),
                   ),
                 ),
@@ -118,9 +133,9 @@ class ProductDetailWidget extends State<ProductDetailPage> {
 }
 
 class SellerProductList extends StatelessWidget {
-  SellerProductList({super.key, this.sellerList});
+  SellerProductList(this.sellerList);
 
-  List<UserSeller>? sellerList;
+  List<SellerDTO> sellerList;
 
   @override
   Widget build(BuildContext context) {
@@ -139,8 +154,9 @@ class SellerProductList extends StatelessWidget {
         const Divider(height: 10),
         Expanded(
           child: ListView.builder(
-            itemCount: 8,
+            itemCount: sellerList.length,
             itemBuilder: ((context, index) {
+              var seller = sellerList[index];
               return ListView(
                 physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
@@ -149,31 +165,34 @@ class SellerProductList extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(vertical: 20),
                     child: ListTile(
                       dense: true,
-                      leading: const CircleAvatar(
-                        child: Icon(Icons.person),
+                      leading: CircleAvatar(
+                        backgroundImage: NetworkImage(seller.photo),
                       ),
-                      title: const Text(
-                        "Manoel Gomes",
-                        style: TextStyle(
+                      title: Text(
+                        seller.name,
+                        style: const TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 18,
                         ),
                       ),
-                      subtitle: Align(
-                        alignment: Alignment.centerLeft,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: Colors.lightGreen,
-                          ),
-                          padding: const EdgeInsets.symmetric(horizontal: 5),
-                          child: Text(
-                            "Orgânico",
-                            style: TextStyle(
-                                color: Colors.green[900], fontSize: 11),
-                          ),
-                        ),
-                      ),
+                      subtitle: seller.isOrganic
+                          ? Align(
+                              alignment: Alignment.centerLeft,
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  color: Colors.lightGreen,
+                                ),
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 5),
+                                child: Text(
+                                  "Orgânico",
+                                  style: TextStyle(
+                                      color: Colors.green[900], fontSize: 11),
+                                ),
+                              ),
+                            )
+                          : null,
                       trailing: IconButton(
                         onPressed: () => CustomRouter.pushPage(
                           context,
