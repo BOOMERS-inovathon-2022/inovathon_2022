@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:inovathon_2022/core/model/dto/product_listing_dto.dart';
 import 'package:inovathon_2022/ui/screen/home/home_page.dart';
 import 'package:inovathon_2022/ui/shared/function_widgets.dart';
 
@@ -6,7 +7,32 @@ import '../../theme/custom_router.dart';
 import '../product_details/product_detail_page.dart';
 
 class HomeWidget extends State<HomePage> {
-  int index = 0;
+  var productList = [
+    ProductListingDTO(
+      id: "",
+      name: "Alface",
+      photo:
+          "https://superprix.vteximg.com.br/arquivos/ids/178850-600-600/Alface-Crespa-Verde-Un-396.png?v=636934628540170000",
+      measure: "Unid",
+      quantityPerSale: 1,
+    ),
+    ProductListingDTO(
+      id: "",
+      name: "Tomate",
+      photo:
+          "http://d3ugyf2ht6aenh.cloudfront.net/stores/746/397/products/tomate-longa-vida1-e12545f3c4985942a915417674167711-640-0.png",
+      measure: "Kg",
+      quantityPerSale: 1,
+    ),
+    ProductListingDTO(
+      id: "",
+      name: "Cebola",
+      photo:
+          "https://static1.conquistesuavida.com.br/ingredients/9/54/26/69/@/24722--ingredient_detail_ingredient-2.png",
+      measure: "Kg",
+      quantityPerSale: 1,
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +90,7 @@ class HomeWidget extends State<HomePage> {
                 ),
                 const SizedBox(height: 30),
                 GridView.builder(
-                  itemCount: 5,
+                  itemCount: productList.length,
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -74,6 +100,7 @@ class HomeWidget extends State<HomePage> {
                     mainAxisExtent: 200,
                   ),
                   itemBuilder: (context, index) {
+                    var product = productList[index];
                     return InkWell(
                       onTap: () async {
                         FunctionWidgets().showLoading(context);
@@ -96,19 +123,19 @@ class HomeWidget extends State<HomePage> {
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             Image.network(
-                              "https://superprix.vteximg.com.br/arquivos/ids/178850-600-600/Alface-Crespa-Verde-Un-396.png?v=636934628540170000",
+                              product.photo,
                               height: 130,
                             ),
-                            const Text(
-                              "Alface",
-                              style: TextStyle(
+                            Text(
+                              "${product.name}",
+                              style: const TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 16,
                               ),
                             ),
-                            const Text(
-                              "1 Kg",
-                              style: TextStyle(
+                            Text(
+                              "${product.quantityPerSale} ${product.measure}",
+                              style: const TextStyle(
                                 fontSize: 16,
                                 color: Colors.grey,
                               ),
