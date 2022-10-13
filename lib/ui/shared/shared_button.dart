@@ -31,7 +31,7 @@ class SharedButton extends StatelessWidget {
             color: Colors.white,
           ),
         ),
-        onPressed: () => onClickAction,
+        onPressed: () => onClickAction(),
       ),
     );
   }
