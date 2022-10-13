@@ -4,13 +4,13 @@ enum DayOfWeekEnum { SUN, MON, TUE, WED, THU, FRY, SAT }
 
 extension DayOfWeekEnumExtension on DayOfWeekEnum {
   static const Map<DayOfWeekEnum, String> values = {
-    DayOfWeekEnum.SUN: 'M',
-    DayOfWeekEnum.MON: 'M',
-    DayOfWeekEnum.TUE: 'M',
-    DayOfWeekEnum.WED: 'M',
-    DayOfWeekEnum.THU: 'M',
-    DayOfWeekEnum.FRY: 'M',
-    DayOfWeekEnum.SAT: 'M',
+    DayOfWeekEnum.SUN: 'SUN',
+    DayOfWeekEnum.MON: 'MON',
+    DayOfWeekEnum.TUE: 'TUE',
+    DayOfWeekEnum.WED: 'WED',
+    DayOfWeekEnum.THU: 'THU',
+    DayOfWeekEnum.FRY: 'FRY',
+    DayOfWeekEnum.SAT: 'SAT',
   };
 
   static const Map<DayOfWeekEnum, String> descriptions = {
