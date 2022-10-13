@@ -66,16 +66,15 @@ class ProductDetailWidget extends State<ProductDetailPage> {
                   ),
                   const SizedBox(height: 10),
                   Row(
-                    children: const <Widget>[
+                    children: <Widget>[
                       Expanded(
                         child: Padding(
-                          padding: EdgeInsets.only(
+                          padding: const EdgeInsets.only(
                             right: 20,
                           ),
                           child: Text(
-                            //TODO descrição do produto
-                            'Lorem ipsum suscipit at donec bibendum suspendisse ante fermentum scelerisque et ipsum quam, dui cras ipsum est aptent quam laoreet senectus congue aliquam. non fermentum rutrum imperdiet etiam litora ut pretium, nec consequat lectus ut odio sollicitudin fermentum magna, condimentum porta leo sodales aenean iaculis. conubia lorem dapibus aenean, nam. ',
-                            style: TextStyle(
+                            widget.product.description,
+                            style: const TextStyle(
                               fontWeight: FontWeight.w400,
                               fontSize: 15,
                             ),
