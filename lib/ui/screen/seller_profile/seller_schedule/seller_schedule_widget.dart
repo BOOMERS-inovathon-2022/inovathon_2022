@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:inovathon_2022/core/model/dao/product_checkout_dto.dart';
+import 'package:inovathon_2022/core/model/dto/product_checkout_dto.dart';
 import 'package:inovathon_2022/core/model/dto/schedule_time_dto.dart';
 import 'package:inovathon_2022/core/model/enums/day_of_week_enum.dart';
 import 'package:inovathon_2022/ui/screen/seller_profile/components/title_divider.dart';
