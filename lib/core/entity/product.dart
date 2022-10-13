@@ -13,15 +13,16 @@ class Product {
   late UserSeller seller;
   late String idParent;
 
-  Product(
-      {this.id,
-      required this.name,
-      required this.description,
-      required this.measure,
-      required this.price,
-      required this.isOrganic,
-      required this.photoUrl,
-      required this.category,
-      required this.seller,
-      required this.idParent});
+  Product({
+    this.id,
+    required this.name,
+    required this.description,
+    required this.measure,
+    required this.price,
+    required this.isOrganic,
+    required this.photoUrl,
+    required this.category,
+    required this.seller,
+    required this.idParent,
+  });
 }

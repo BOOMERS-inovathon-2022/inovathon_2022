@@ -7,9 +7,10 @@ class SellerSchedule {
   late List<TimeInterval> breakTimes;
   late String dayOfWeek;
 
-  SellerSchedule(
-      {required this.userSeller,
-      required this.workingTime,
-      required this.breakTimes,
-      required this.dayOfWeek});
+  SellerSchedule({
+    required this.userSeller,
+    required this.workingTime,
+    required this.breakTimes,
+    required this.dayOfWeek,
+  });
 }
