@@ -1,72 +1,51 @@
 import 'package:flutter/material.dart';
 import 'package:inovathon_2022/ui/screen/home/home_page.dart';
 
-import '../../shared/shared_input.dart';
-
 class HomeWidget extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[100],
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        shadowColor: Colors.transparent,
-        elevation: 0,
-        leading: CircleAvatar(
-          backgroundColor: Colors.white,
-          radius: 10,
-          child: IconButton(
-            onPressed: () => null,
-            icon: const Icon(Icons.menu),
-            color: Colors.black,
-          ),
-        ),
-        actions: [
-          CircleAvatar(
-            backgroundColor: Colors.white,
-            radius: 30,
-            child: IconButton(
-              onPressed: () => null,
-              icon: const Icon(
-                Icons.search,
+        backgroundColor: Colors.grey[100],
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          shadowColor: Colors.transparent,
+          elevation: 0,
+          actions: [
+            CircleAvatar(
+              backgroundColor: Colors.white,
+              radius: 30,
+              child: IconButton(
+                onPressed: () => null,
+                icon: const Icon(Icons.search),
+                color: Colors.black,
               ),
-              color: Colors.black,
             ),
-          ),
-          SharedTextInput(
-            hintText: 'E-mail',
-            keyboardType: TextInputType.emailAddress,
-          )
-        ],
-      ),
-      body: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: ListView(
-          children: [
-            const SizedBox(height: 20),
-            InkWell(
-              onTap: () => null,
-              child: Ink(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: Colors.green[200],
-                ),
-                width: double.infinity,
-                height: 150,
-                child: Center(
-                  child: Text(
-                    "Anuncie Aqui",
-                    style: TextStyle(
-                      fontSize: 28,
-                      color: Colors.grey[700],
+          ],
+        ),
+        body: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: ListView(
+            children: [
+              const SizedBox(height: 20),
+              InkWell(
+                onTap: () => null,
+                child: Ink(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Colors.green[200],
+                  ),
+                  width: double.infinity,
+                  height: 150,
+                  child: Center(
+                    child: Text(
+                      "Anuncie Aqui",
+                      style: TextStyle(fontSize: 28, color: Colors.grey[700]),
                     ),
                   ),
                 ),
               ),
-            ),
-            const SizedBox(height: 30),
-            Column(
-              children: [
+              const SizedBox(height: 30),
+              Column(children: [
                 const Text(
                   "Produtos da sua região",
                   style: TextStyle(
@@ -91,13 +70,8 @@ class HomeWidget extends State<HomePage> {
                         onTap: () => null,
                         child: Ink(
                           decoration: BoxDecoration(
-                            border: Border.all(
-                              color: Colors.grey.shade400,
-                            ),
-                            borderRadius: BorderRadius.circular(
-                              15,
-                            ),
-                          ),
+                              border: Border.all(color: Colors.grey.shade400),
+                              borderRadius: BorderRadius.circular(15)),
                           child: Column(
                             children: [
                               Image.network(
@@ -124,12 +98,10 @@ class HomeWidget extends State<HomePage> {
                       );
                     },
                   ),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
-    );
+                )
+              ]),
+            ],
+          ),
+        ));
   }
 }
