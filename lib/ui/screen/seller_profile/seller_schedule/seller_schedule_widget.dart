@@ -125,18 +125,64 @@ class SellerScheduleWidget extends State<SellerSchedulePage> {
       decoration:
           BoxDecoration(color: kBackgroundGreyColor, borderRadius: BorderRadius.circular(20)),
       child: Material(
-          borderRadius: BorderRadius.circular(20),
-          color: Colors.transparent,
-          child: InkWell(
-              onTap: () {},
-              child: Padding(
-                padding: const EdgeInsets.all(10),
-                child: Text(
-                  to24hours(timeDTO.time),
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
-                ),
-              ))),
+        borderRadius: BorderRadius.circular(20),
+        color: Colors.transparent,
+        child: InkWell(
+          onTap: () {
+            showModalBottomSheet(
+              isDismissible: false,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              isScrollControlled: true,
+              context: context,
+              builder: (context) => FractionallySizedBox(
+                heightFactor: 0.85,
+                child: ProductCheckoutModal([
+                  ProductCheckoutDTO(
+                    id: "",
+                    name: "Alface",
+                    measure: "Uni",
+                    quantityPerSale: 1,
+                    photoUrl:
+                        "https://img2.gratispng.com/20180601/osx/kisspng-romaine-lettuce-red-leaf-lettuce-leaf-vegetable-sp-5b11388a3572b5.0460181615278552422189.jpg",
+                    isOrganic: true,
+                    price: 4.0,
+                  ),
+                  ProductCheckoutDTO(
+                    id: "",
+                    name: "Batata",
+                    measure: "Kg",
+                    quantityPerSale: 1,
+                    photoUrl:
+                        "https://static1.conquistesuavida.com.br/ingredients/5/54/52/05/@/24682--ingredient_detail_ingredient-2.png",
+                    isOrganic: true,
+                    price: 12.0,
+                  ),
+                  ProductCheckoutDTO(
+                    id: "",
+                    name: "Leite",
+                    measure: "L",
+                    quantityPerSale: 1,
+                    photoUrl:
+                        "https://static.wikia.nocookie.net/fallout/images/1/1b/Empty_milk_bottle.png/revision/latest?cb=20151224125130",
+                    isOrganic: true,
+                    price: 4.0,
+                  ),
+                ]),
+              ),
+            );
+          },
+          child: Padding(
+            padding: const EdgeInsets.all(10),
+            child: Text(
+              to24hours(timeDTO.time),
+              textAlign: TextAlign.center,
+              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
+            ),
+          ),
+        ),
+      ),
     );
   }
 
