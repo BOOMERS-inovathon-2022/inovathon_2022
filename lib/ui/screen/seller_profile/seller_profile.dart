@@ -32,8 +32,8 @@ class _SellerProfileState extends State<SellerProfile> with TickerProviderStateM
         userSeller: null,
         workingTime: TimeInterval(
             startTime: const TimeOfDay(hour: 9, minute: 0),
-            endTime: const TimeOfDay(hour: 19, minute: 0)),
-        deliveryMinutesCD: 30,
+            endTime: const TimeOfDay(hour: 20, minute: 0)),
+        deliveryMinutesCD: 50,
         breakTimes: [TimeInterval(
             startTime: const TimeOfDay(hour: 10, minute: 0),
             endTime: const TimeOfDay(hour: 13, minute: 0))])
