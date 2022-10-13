@@ -21,10 +21,9 @@ class ProductDetailWidget extends State<ProductDetailPage> {
         ),
         body: ListView(
           children: [
-            const Image(
-              image: NetworkImage(
-                "https://i5.walmartimages.ca/images/Enlarge/006/949/6000196006949.jpg",
-              ),
+            Image(
+              image: NetworkImage(widget.product.photo),
+              height: 400,
             ),
             Padding(
               padding: const EdgeInsets.only(
@@ -32,10 +31,10 @@ class ProductDetailWidget extends State<ProductDetailPage> {
                 left: 20,
               ),
               child: Row(
-                children: const <Widget>[
+                children: <Widget>[
                   Expanded(
                     child: Text(
-                      'Alface', //TODO nome do produto
+                      widget.product.name,
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 22,

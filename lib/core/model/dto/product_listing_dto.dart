@@ -1,5 +1,6 @@
 class ProductListingDTO {
   String id;
+  String description;
   String name;
   String photo;
   String measure;
@@ -11,5 +12,6 @@ class ProductListingDTO {
     required this.photo,
     required this.measure,
     required this.quantityPerSale,
+    required this.description,
   });
 }

@@ -11,6 +11,7 @@ class HomeWidget extends State<HomePage> {
     ProductListingDTO(
       id: "",
       name: "Alface",
+      description: "",
       photo:
           "https://superprix.vteximg.com.br/arquivos/ids/178850-600-600/Alface-Crespa-Verde-Un-396.png?v=636934628540170000",
       measure: "Unid",
@@ -19,6 +20,7 @@ class HomeWidget extends State<HomePage> {
     ProductListingDTO(
       id: "",
       name: "Tomate",
+      description: "",
       photo:
           "http://d3ugyf2ht6aenh.cloudfront.net/stores/746/397/products/tomate-longa-vida1-e12545f3c4985942a915417674167711-640-0.png",
       measure: "Kg",
@@ -27,6 +29,7 @@ class HomeWidget extends State<HomePage> {
     ProductListingDTO(
       id: "",
       name: "Cebola",
+      description: "",
       photo:
           "https://static1.conquistesuavida.com.br/ingredients/9/54/26/69/@/24722--ingredient_detail_ingredient-2.png",
       measure: "Kg",
@@ -109,7 +112,7 @@ class HomeWidget extends State<HomePage> {
 
                         CustomRouter.pushPage(
                           context,
-                          ProductDetailPage(),
+                          ProductDetailPage(product),
                         );
                       },
                       child: Ink(
