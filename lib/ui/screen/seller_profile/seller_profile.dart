@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:inovathon_2022/core/model/entity/seller_schedule.dart';
 import 'package:inovathon_2022/core/model/entity/time_interval.dart';
 import 'package:inovathon_2022/core/model/entity/user_seller.dart';
@@ -6,6 +7,7 @@ import 'package:inovathon_2022/core/model/enums/day_of_week_enum.dart';
 import 'package:inovathon_2022/ui/screen/seller_profile/components/seller_tag.dart';
 import 'package:inovathon_2022/ui/screen/seller_profile/seller_details/seller_details_page.dart';
 import 'package:inovathon_2022/ui/screen/seller_profile/seller_schedule/seller_schedule_page.dart';
+import 'package:inovathon_2022/ui/theme/colors.dart';
 
 class SellerProfile extends StatefulWidget {
   final UserSeller? seller; // TODO - não pode ser null
@@ -16,8 +18,7 @@ class SellerProfile extends StatefulWidget {
   State<SellerProfile> createState() => _SellerProfileState();
 }
 
-class _SellerProfileState extends State<SellerProfile>
-    with TickerProviderStateMixin {
+class _SellerProfileState extends State<SellerProfile> with TickerProviderStateMixin {
   late TabController _controller;
 
   @override
@@ -51,7 +52,7 @@ class _SellerProfileState extends State<SellerProfile>
       child: Scaffold(
         appBar: AppBar(
           title: const Text(
-            'Perfil do Vendedor',
+            'Perfil do Produtor',
             style: TextStyle(
               color: Colors.white,
             ),
@@ -108,6 +109,21 @@ class _SellerProfileState extends State<SellerProfile>
                               color: Color.fromARGB(255, 145, 224, 127),
                             ),
                           ],
+                        ),
+                        RatingBar.builder(
+                          initialRating: 4.3,
+                          ignoreGestures: true,
+                          minRating: 1,
+                          itemSize: 25,
+                          direction: Axis.horizontal,
+                          allowHalfRating: true,
+                          itemCount: 5,
+                          itemPadding: const EdgeInsets.symmetric(horizontal: 0.0),
+                          itemBuilder: (context, _) => const Icon(
+                            Icons.star,
+                            color: kStarRatingColor,
+                          ),
+                          onRatingUpdate: (rating) => 0,
                         )
                       ],
                     )
@@ -121,10 +137,7 @@ class _SellerProfileState extends State<SellerProfile>
               Expanded(
                 child: TabBarView(
                   controller: _controller,
-                  children: [
-                    const SellerDetailsPage(),
-                    SellerSchedulePage(schedule: schedules)
-                  ],
+                  children: [const SellerDetailsPage(), SellerSchedulePage(schedule: schedules)],
                 ),
               ),
             ],

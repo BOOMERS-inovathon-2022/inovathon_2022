@@ -33,7 +33,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
             type: BottomNavigationBarType.fixed,
             backgroundColor: Colors.lightGreen,
             iconSize: 26,
-            selectedItemColor: Colors.black,
+            selectedItemColor: Colors.brown,
             unselectedItemColor: Colors.white,
             currentIndex: current_index,
             selectedFontSize: 16.0,
