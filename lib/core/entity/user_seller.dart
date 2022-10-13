@@ -7,4 +7,12 @@ class UserSeller {
   late bool isVerified;
   late double rating;
   late List<String> photosProduction;
+
+  UserSeller(
+      {required this.user,
+      required this.description,
+      required this.tags,
+      this.isVerified = false,
+      required this.rating,
+      required this.photosProduction});
 }

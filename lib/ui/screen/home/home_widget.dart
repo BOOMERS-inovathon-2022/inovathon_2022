@@ -59,8 +59,7 @@ class HomeWidget extends State<HomePage> {
                     itemCount: 5,
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
-                    gridDelegate:
-                        const SliverGridDelegateWithMaxCrossAxisExtent(
+                    gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
                       maxCrossAxisExtent: 200,
                       mainAxisExtent: 200,
                       crossAxisSpacing: 4,
