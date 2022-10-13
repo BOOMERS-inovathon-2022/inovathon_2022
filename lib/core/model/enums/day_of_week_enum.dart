@@ -23,7 +23,7 @@ extension DayOfWeekEnumExtension on DayOfWeekEnum {
     DayOfWeekEnum.SAT: 'Sábado',
   };
 
-  static const Map<DayOfWeekEnum, String> abbreviation = {
+  static const Map<DayOfWeekEnum, String> abbreviations = {
     DayOfWeekEnum.SUN: 'Dom',
     DayOfWeekEnum.MON: 'Seg',
     DayOfWeekEnum.TUE: 'Ter',
@@ -34,8 +34,8 @@ extension DayOfWeekEnumExtension on DayOfWeekEnum {
   };
 
   String? get value => values[this];
-
   String? get description => descriptions[this];
+  String? get abbreviation => abbreviations[this];
 
   static DayOfWeekEnum? fromRaw(String raw) => values.entries.firstWhere((e) => e.value == raw).key;
 }
