@@ -36,7 +36,7 @@ class _ChatPageState extends State<ChatPage> {
             ),
             const SizedBox(width: 15),
             const Text(
-              'Manoel Gomes', //TODO nome do vendedor
+              'Manoel Gomes' , //TODO nome do vendedor
               style: TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
