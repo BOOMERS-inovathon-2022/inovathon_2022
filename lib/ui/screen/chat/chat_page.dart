@@ -29,20 +29,23 @@ class _ChatPageState extends State<ChatPage> {
         ),
       ),
       body: SafeArea(
-        child: Column(
+        child: Column( 
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-              MessageContainer( content: 'Olá, qual o preço do Alface?', isSender: true),
-                MessageContainer( content: 'A Alface está 5 reais ', isSender: false),
-                MessageContainer( content: 'Ainda há 4 unidades para hoje', isSender: false),
-                MessageContainer( content: 'Opa!, eu gostaria de 2 Por Favor', isSender: true),
-                MessageContainer( content: 'Das 14 as 15 ?', isSender: true),
-                MessageContainer( content: 'Sim', isSender: false),
-            ],),
+            Expanded(
+              child: ListView(
+                children: [
+                MessageContainer( content: 'Olá, qual o preço do Alface?', isSender: true),
+                  MessageContainer( content: 'A Alface está 5 reais ', isSender: false),
+                  MessageContainer( content: 'Ainda há 4 unidades para hoje', isSender: false),
+                  MessageContainer( content: 'Opa!, eu gostaria de 2 Por Favor', isSender: true),
+                  MessageContainer( content: 'Das 14 as 15 ?', isSender: true),
+                  MessageContainer( content: 'Sim', isSender: false),
+                  MessageContainer( content: 'Obrigada!', isSender: true),
+
+              ],),
+            ),
             Container(
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
