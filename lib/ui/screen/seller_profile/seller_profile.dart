@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:inovathon_2022/core/model/entity/seller_schedule.dart';
+import 'package:inovathon_2022/core/model/entity/time_interval.dart';
 import 'package:inovathon_2022/core/model/entity/user_seller.dart';
+import 'package:inovathon_2022/core/model/enums/day_of_week_enum.dart';
 import 'package:inovathon_2022/ui/screen/seller_profile/components/seller_tag.dart';
 import 'package:inovathon_2022/ui/screen/seller_profile/seller_details/seller_details_page.dart';
+import 'package:inovathon_2022/ui/screen/seller_profile/seller_schedule/seller_schedule_page.dart';
 
 class SellerProfile extends StatefulWidget {
   final UserSeller? seller; // TODO - não pode ser null
@@ -20,6 +24,18 @@ class _SellerProfileState extends State<SellerProfile> with TickerProviderStateM
     super.initState();
     _controller = TabController(length: 2, vsync: this);
   }
+
+  List<SellerSchedule> schedules = [
+    SellerSchedule(
+        dayOfWeek: DayOfWeekEnum.MON,
+        isTaken: false,
+        userSeller: null,
+        workingTime: TimeInterval(
+            startTime: const TimeOfDay(hour: 9, minute: 0),
+            endTime: const TimeOfDay(hour: 19, minute: 0)),
+        deliveryMinutesCD: 30,
+        breakTimes: [])
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -90,7 +106,7 @@ class _SellerProfileState extends State<SellerProfile> with TickerProviderStateM
             Expanded(
               child: TabBarView(
                 controller: _controller,
-                children: const [SellerDetailsPage(), Text("asdasdasd")],
+                children: [const SellerDetailsPage(), SellerSchedulePage(schedule: schedules)],
               ),
             ),
 
