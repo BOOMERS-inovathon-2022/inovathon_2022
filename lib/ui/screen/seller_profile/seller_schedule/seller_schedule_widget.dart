@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:inovathon_2022/core/model/dao/product_checkout_dto.dart';
+import 'package:inovathon_2022/ui/screen/product_details/product_detail_widget.dart';
 import 'package:inovathon_2022/ui/screen/seller_profile/seller_schedule/seller_schedule_page.dart';
 import 'package:inovathon_2022/ui/shared/shared_button.dart';
 import 'package:inovathon_2022/ui/shared/shared_counter.dart';
@@ -40,23 +41,25 @@ class SellerScheduleWidget extends State<SellerSchedulePage> {
           color: Colors.black,
         ),
         if (sellerTimes.indexWhere((element) => element.time.hour < 12) != -1)
-          ...getPeriodDivider(
-              "Manhã", sellerTimes.where((element) => element.time.hour < 12).toList()),
-        if (sellerTimes
-                .indexWhere((element) => element.time.hour >= 12 && element.time.hour < 18) !=
+          ...getPeriodDivider("Manhã",
+              sellerTimes.where((element) => element.time.hour < 12).toList()),
+        if (sellerTimes.indexWhere((element) =>
+                element.time.hour >= 12 && element.time.hour < 18) !=
             -1)
           ...getPeriodDivider(
               "Tarde",
               sellerTimes
-                  .where((element) => element.time.hour >= 12 && element.time.hour < 18)
+                  .where((element) =>
+                      element.time.hour >= 12 && element.time.hour < 18)
                   .toList()),
-        if (sellerTimes
-                .indexWhere((element) => element.time.hour >= 18 && element.time.hour < 23) !=
+        if (sellerTimes.indexWhere((element) =>
+                element.time.hour >= 18 && element.time.hour < 23) !=
             -1)
           ...getPeriodDivider(
               "Noite",
               sellerTimes
-                  .where((element) => element.time.hour >= 18 && element.time.hour < 23)
+                  .where((element) =>
+                      element.time.hour >= 18 && element.time.hour < 23)
                   .toList()),
       ],
     );
@@ -69,8 +72,9 @@ class SellerScheduleWidget extends State<SellerSchedulePage> {
 
       while (timeToDouble(endTime) > timeToDouble(tempTime)) {
         sellerTimes.add(ScheduleTimeDTO(time: tempTime, isAvailable: true));
-        tempTime = TimeOfDay.fromDateTime(DateTime(0, 0, 0, tempTime.hour, tempTime.minute)
-            .add(Duration(minutes: element.deliveryMinutesCD)));
+        tempTime = TimeOfDay.fromDateTime(
+            DateTime(0, 0, 0, tempTime.hour, tempTime.minute)
+                .add(Duration(minutes: element.deliveryMinutesCD)));
       }
 
       for (var breakTime in element.breakTimes) {
@@ -78,9 +82,10 @@ class SellerScheduleWidget extends State<SellerSchedulePage> {
         var breakTemp = breakTime.startTime;
         while (timeToDouble(breakEnd) > timeToDouble(breakTemp)) {
           breakTemp = TimeOfDay.fromDateTime(
-              DateTime(0, 0, 0, breakTemp.hour, breakTemp.minute).add(const Duration(minutes: 1)));
-          sellerTimes.removeWhere(
-              (sellerTime) => timeToDouble(sellerTime.time) == timeToDouble(breakTemp));
+              DateTime(0, 0, 0, breakTemp.hour, breakTemp.minute)
+                  .add(const Duration(minutes: 1)));
+          sellerTimes.removeWhere((sellerTime) =>
+              timeToDouble(sellerTime.time) == timeToDouble(breakTemp));
         }
       }
     }
@@ -89,18 +94,24 @@ class SellerScheduleWidget extends State<SellerSchedulePage> {
   double timeToDouble(TimeOfDay myTime) => myTime.hour + (myTime.minute / 60.0);
 
   getDayOfWeek(DayOfWeekEnum dayOfWeek) {
-    bool isInList = widget.schedule.indexWhere((element) => element.dayOfWeek == dayOfWeek) != (-1);
+    bool isInList = widget.schedule
+            .indexWhere((element) => element.dayOfWeek == dayOfWeek) !=
+        (-1);
 
     return Container(
       width: 75,
       margin: const EdgeInsets.all(10),
-      decoration:
-          BoxDecoration(color: kBackgroundGreyColor, borderRadius: BorderRadius.circular(10)),
+      decoration: BoxDecoration(
+          color: kBackgroundGreyColor, borderRadius: BorderRadius.circular(10)),
       child: Material(
         borderRadius: BorderRadius.circular(10),
         color: Colors.transparent,
         child: InkWell(
-          onTap: isInList ? () {} : null,
+          onTap: isInList
+              ? () {
+                  print("a");
+                }
+              : null,
           child: Padding(
             padding: const EdgeInsets.all(10),
             child: Column(children: [
@@ -113,7 +124,8 @@ class SellerScheduleWidget extends State<SellerSchedulePage> {
               ),
               Text("01/10",
                   style: TextStyle(
-                      fontWeight: FontWeight.bold, color: isInList ? Colors.black : Colors.grey))
+                      fontWeight: FontWeight.bold,
+                      color: isInList ? Colors.black : Colors.grey))
             ]),
           ),
         ),
@@ -124,20 +136,66 @@ class SellerScheduleWidget extends State<SellerSchedulePage> {
   getHourTag(ScheduleTimeDTO timeDTO) {
     return Container(
       margin: const EdgeInsets.all(10),
-      decoration:
-          BoxDecoration(color: kBackgroundGreyColor, borderRadius: BorderRadius.circular(20)),
+      decoration: BoxDecoration(
+          color: kBackgroundGreyColor, borderRadius: BorderRadius.circular(20)),
       child: Material(
-          borderRadius: BorderRadius.circular(20),
-          color: Colors.transparent,
-          child: InkWell(
-              onTap: () {},
-              child: Padding(
-                padding: const EdgeInsets.all(10),
-                child: Text(
-                  to24hours(timeDTO.time),
-                  style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
-                ),
-              ))),
+        borderRadius: BorderRadius.circular(20),
+        color: Colors.transparent,
+        child: InkWell(
+          onTap: () {
+            showModalBottomSheet(
+              isDismissible: false,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              isScrollControlled: true,
+              context: context,
+              builder: (context) => FractionallySizedBox(
+                heightFactor: 0.85,
+                child: ProductCheckoutModal([
+                  ProductCheckoutDTO(
+                    id: "",
+                    name: "Alface",
+                    measure: "Uni",
+                    quantityPerSale: 1,
+                    photoUrl:
+                        "https://img2.gratispng.com/20180601/osx/kisspng-romaine-lettuce-red-leaf-lettuce-leaf-vegetable-sp-5b11388a3572b5.0460181615278552422189.jpg",
+                    isOrganic: true,
+                    price: 4.0,
+                  ),
+                  ProductCheckoutDTO(
+                    id: "",
+                    name: "Batata",
+                    measure: "Kg",
+                    quantityPerSale: 1,
+                    photoUrl:
+                        "https://static1.conquistesuavida.com.br/ingredients/5/54/52/05/@/24682--ingredient_detail_ingredient-2.png",
+                    isOrganic: true,
+                    price: 12.0,
+                  ),
+                  ProductCheckoutDTO(
+                    id: "",
+                    name: "Leite",
+                    measure: "L",
+                    quantityPerSale: 1,
+                    photoUrl:
+                        "https://static.wikia.nocookie.net/fallout/images/1/1b/Empty_milk_bottle.png/revision/latest?cb=20151224125130",
+                    isOrganic: true,
+                    price: 4.0,
+                  ),
+                ]),
+              ),
+            );
+          },
+          child: Padding(
+            padding: const EdgeInsets.all(10),
+            child: Text(
+              to24hours(timeDTO.time),
+              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
+            ),
+          ),
+        ),
+      ),
     );
   }
 
@@ -169,7 +227,6 @@ class SellerScheduleWidget extends State<SellerSchedulePage> {
     ];
   }
 }
-
 
 class ProductCheckoutModal extends StatefulWidget {
   ProductCheckoutModal(this.productList);
@@ -230,19 +287,19 @@ class _ProductCheckoutModalState extends State<ProductCheckoutModal> {
                                 const SizedBox(width: 10),
                                 product.isOrganic
                                     ? Container(
-                                  decoration: BoxDecoration(
-                                    borderRadius:
-                                    BorderRadius.circular(10),
-                                    color: Colors.lightGreen,
-                                  ),
-                                  padding: const EdgeInsets.all(5),
-                                  child: Text(
-                                    "Orgânico",
-                                    style: TextStyle(
-                                      color: Colors.green[900],
-                                    ),
-                                  ),
-                                )
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          color: Colors.lightGreen,
+                                        ),
+                                        padding: const EdgeInsets.all(5),
+                                        child: Text(
+                                          "Orgânico",
+                                          style: TextStyle(
+                                            color: Colors.green[900],
+                                          ),
+                                        ),
+                                      )
                                     : Container(),
                               ],
                             ),
@@ -291,4 +348,3 @@ class _ProductCheckoutModalState extends State<ProductCheckoutModal> {
     );
   }
 }
-
