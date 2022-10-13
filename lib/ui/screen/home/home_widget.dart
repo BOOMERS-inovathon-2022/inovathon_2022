@@ -40,7 +40,7 @@ class HomeWidget extends State<HomePage> {
                   color: Colors.green[50],
                 ),
                 width: double.infinity,
-                height: 150,
+                height: 120,
                 child: Center(
                   child: Text(
                     "Anuncie Aqui",
@@ -67,11 +67,11 @@ class HomeWidget extends State<HomePage> {
                   itemCount: 5,
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
-                  gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                    maxCrossAxisExtent: 200,
-                    mainAxisExtent: 190,
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
                     crossAxisSpacing: 10,
                     mainAxisSpacing: 10,
+                    mainAxisExtent: 200,
                   ),
                   itemBuilder: (context, index) {
                     return InkWell(
