@@ -76,7 +76,7 @@ class _SellerProfileState extends State<SellerProfile> with TickerProviderStateM
                         Row(
                           children: const [
                             Text(
-                              "Manoel Gomes", // TODO - corrigir overflow
+                              "Manoel Gomes",
                               style: TextStyle(
                                   overflow: TextOverflow.ellipsis,
                                   fontWeight: FontWeight.bold,

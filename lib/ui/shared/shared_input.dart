@@ -33,9 +33,9 @@ class SharedTextInput extends StatelessWidget {
       obscureText: obscureText,
       inputFormatters: inputFormatters,
       decoration: InputDecoration(
-        icon: Icon(
-          icon,
-        ),
+        // icon: Icon(
+        //   icon,
+        // ),
         hintText: hintText,
       ),
     );
