@@ -5,13 +5,13 @@ class SharedTextInput extends StatelessWidget {
   final String? hintText;
   final IconData? icon;
   final bool obscureText;
-  final ValueChanged<String>? onChanged;
+  late ValueChanged<String>? onChanged;
   final TextEditingController? controller;
   final String? Function(String?)? validator;
   final TextInputType? keyboardType;
   final List<TextInputFormatter>? inputFormatters;
 
-  const SharedTextInput({
+  SharedTextInput({
     Key? key,
     this.hintText,
     this.icon,
@@ -37,7 +37,6 @@ class SharedTextInput extends StatelessWidget {
           icon,
         ),
         hintText: hintText,
-        // contentPadding: EdgeInsets.zero,
       ),
     );
   }
