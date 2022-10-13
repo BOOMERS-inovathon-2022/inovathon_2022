@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:inovathon_2022/core/model/dto/schedule_time_dto.dart';
 import 'package:inovathon_2022/core/model/enums/day_of_week_enum.dart';
 import 'package:inovathon_2022/ui/screen/seller_profile/seller_schedule/seller_schedule_page.dart';
 import 'package:inovathon_2022/ui/theme/colors.dart';
 
 class SellerScheduleWidget extends State<SellerSchedulePage> {
+  List<ScheduleTimeDTO> sellerTimes = [];
+
+  @override
+  void initState() {
+    generateTimes();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -27,6 +36,32 @@ class SellerScheduleWidget extends State<SellerSchedulePage> {
       ],
     );
   }
+
+  generateTimes() {
+    for (var element in widget.schedule) {
+      var endTime = element.workingTime.endTime;
+      var tempTime = element.workingTime.startTime;
+
+      while (timeToDouble(endTime) > timeToDouble(tempTime)) {
+        sellerTimes.add(ScheduleTimeDTO(time: tempTime, isAvailable: true));
+        tempTime = TimeOfDay.fromDateTime(DateTime(0, 0, 0, tempTime.hour, tempTime.minute)
+            .add(Duration(minutes: element.deliveryMinutesCD)));
+      }
+
+      for (var breakTime in element.breakTimes) {
+        var breakEnd = breakTime.endTime;
+        var breakTemp = breakTime.startTime;
+        while (timeToDouble(breakEnd) > timeToDouble(breakTemp)) {
+          breakTemp = TimeOfDay.fromDateTime(
+              DateTime(0, 0, 0, breakTemp.hour, breakTemp.minute).add(const Duration(minutes: 1)));
+          sellerTimes.removeWhere(
+              (sellerTime) => timeToDouble(sellerTime.time) == timeToDouble(breakTemp));
+        }
+      }
+    }
+  }
+
+  double timeToDouble(TimeOfDay myTime) => myTime.hour + (myTime.minute / 60.0);
 
   getDayOfWeek(DayOfWeekEnum dayOfWeek) {
     bool isInList = widget.schedule.indexWhere((element) => element.dayOfWeek == dayOfWeek) != (-1);
