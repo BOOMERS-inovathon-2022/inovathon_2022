@@ -14,7 +14,7 @@ class HomeWidget extends State<HomePage> {
       description: "Alface é uma hortense anual ou bienal, utilizada na alimentação humana desde cerca de 500 a.C.. Originária do Leste do Mediterrâneo, é mundialmente cultivada para o consumo em saladas, com inúmeras variedades de folhas, cores, formas, tamanhos e texturas.",
       photo:
           "https://superprix.vteximg.com.br/arquivos/ids/178850-600-600/Alface-Crespa-Verde-Un-396.png?v=636934628540170000",
-      measure: "Unid",
+      measure: "Un",
       quantityPerSale: 1,
     ),
     ProductListingDTO(
@@ -32,6 +32,15 @@ class HomeWidget extends State<HomePage> {
       description: "A cebola (Allium cepa) é uma hortaliça de grande consumo em todo o mundo. A mesma é originária da Ásia Central, tendo sido cultiva na Índia e na China desde tempos remotos e levada para a Pérsia, onde se propagou por toda a África e Europa. A cebola foi trazida para o Brasil pelos colonizadores portugueses.",
       photo:
           "https://static1.conquistesuavida.com.br/ingredients/9/54/26/69/@/24722--ingredient_detail_ingredient-2.png",
+      measure: "Kg",
+      quantityPerSale: 1,
+    ),
+    ProductListingDTO(
+      id: "",
+      name: "Milho",
+      description: "Milho (Zea mays) é um cereal cultivado em grande parte do mundo e extensivamente utilizado como alimento humano ou para ração animal devido às suas qualidades nutricionais.",
+      photo:
+      "https://www.ruralsoft.com.br/wp-content/uploads/2016/08/milho.png",
       measure: "Kg",
       quantityPerSale: 1,
     ),
