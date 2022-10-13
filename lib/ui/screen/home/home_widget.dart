@@ -6,6 +6,8 @@ import '../../theme/custom_router.dart';
 import '../product_details/product_detail_page.dart';
 
 class HomeWidget extends State<HomePage> {
+  int index = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
