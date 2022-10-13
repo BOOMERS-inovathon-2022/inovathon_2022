@@ -6,7 +6,10 @@ import 'package:inovathon_2022/ui/theme/colors.dart';
 
 class SellerDetailsWidget extends State<SellerDetailsPage> {
   List<List<String>> productsImages = [
-    ["https://imagensemoldes.com.br/wp-content/uploads/2020/07/Cenoura-PNG.png", "Cenoura"],
+    [
+      "https://imagensemoldes.com.br/wp-content/uploads/2020/07/Cenoura-PNG.png",
+      "Cenoura"
+    ],
     [
       "https://images.squarespace-cdn.com/content/v1/5b8edfa12714e508f756f481/1543944726778-3R28J0BST06GRZCOF7UR/alface-crespa-verde-hidropônica.png",
       "Alface"
@@ -57,7 +60,7 @@ class SellerDetailsWidget extends State<SellerDetailsPage> {
         const Padding(
           padding: EdgeInsets.only(left: 10),
           child: TitleDivider(
-            title: "Produtos Populares",
+            title: "Meus produtos populares",
             endDivider: 240,
           ),
         ),
@@ -69,7 +72,9 @@ class SellerDetailsWidget extends State<SellerDetailsPage> {
             viewportFraction: 0.4,
             initialPage: 0,
           ),
-          itemBuilder: (BuildContext context, int itemIndex, int pageViewIndex) => Container(
+          itemBuilder:
+              (BuildContext context, int itemIndex, int pageViewIndex) =>
+                  Container(
             width: MediaQuery.of(context).size.width,
             margin: const EdgeInsets.symmetric(horizontal: 5.0),
             decoration: BoxDecoration(
@@ -120,17 +125,20 @@ class SellerDetailsWidget extends State<SellerDetailsPage> {
         CarouselSlider.builder(
           itemCount: productionImages.length,
           options: carouselOptions,
-          itemBuilder: (BuildContext context, int itemIndex, int pageViewIndex) => Container(
+          itemBuilder:
+              (BuildContext context, int itemIndex, int pageViewIndex) =>
+                  Container(
             width: MediaQuery.of(context).size.width,
             margin: const EdgeInsets.symmetric(horizontal: 5.0),
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: NetworkImage(
-                    productionImages[itemIndex],
-                  ),
-                )),
+              borderRadius: BorderRadius.circular(20),
+              image: DecorationImage(
+                fit: BoxFit.cover,
+                image: NetworkImage(
+                  productionImages[itemIndex],
+                ),
+              ),
+            ),
           ),
         )
       ],

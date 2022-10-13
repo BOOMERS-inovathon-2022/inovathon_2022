@@ -111,7 +111,7 @@ class _SellerProfileState extends State<SellerProfile> with TickerProviderStateM
                           ],
                         ),
                         RatingBar.builder(
-                          initialRating: 4,
+                          initialRating: 4.3,
                           ignoreGestures: true,
                           minRating: 1,
                           itemSize: 25,
