@@ -279,12 +279,10 @@ class _ProductCheckoutModalState extends State<ProductCheckoutModal> {
                                           borderRadius: BorderRadius.circular(10),
                                           color: Colors.lightGreen,
                                         ),
-                                        padding: const EdgeInsets.all(5),
+                                        padding: const EdgeInsets.symmetric(horizontal: 5),
                                         child: Text(
                                           "Orgânico",
-                                          style: TextStyle(
-                                            color: Colors.green[900],
-                                          ),
+                                          style: TextStyle(color: Colors.green[900], fontSize: 10),
                                         ),
                                       )
                                     : Container(),

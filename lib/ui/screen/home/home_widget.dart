@@ -60,8 +60,9 @@ class HomeWidget extends State<HomePage> {
                   physics: const NeverScrollableScrollPhysics(),
                   gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
                     maxCrossAxisExtent: 200,
-                    mainAxisExtent: 200,
-                    crossAxisSpacing: 4,
+                    mainAxisExtent: 190,
+                    crossAxisSpacing: 10,
+                    mainAxisSpacing: 10
                   ),
                   itemBuilder: (context, index) {
                     return InkWell(
@@ -77,6 +78,7 @@ class HomeWidget extends State<HomePage> {
                           ),
                         ),
                         child: Column(
+                          mainAxisSize: MainAxisSize.min,
                           children: [
                             Image.network(
                               "https://superprix.vteximg.com.br/arquivos/ids/178850-600-600/Alface-Crespa-Verde-Un-396.png?v=636934628540170000",
