@@ -1,13 +1,15 @@
 import 'city.dart';
 
-class Adress {
+class Address {
+  late String? id;
   late String street;
   late String number;
   late String cep;
   late String district;
   late City city;
 
-  Adress({
+  Address({
+    this.id,
     required this.street,
     required this.number,
     required this.cep,
