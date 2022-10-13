@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:inovathon_2022/core/model/dao/product_checkout_dto.dart';
-import 'package:inovathon_2022/ui/screen/seller_profile/seller_schedule/seller_schedule_page.dart';
-import 'package:inovathon_2022/ui/shared/shared_button.dart';
-import 'package:inovathon_2022/ui/shared/shared_counter.dart';
 import 'package:inovathon_2022/core/model/dto/schedule_time_dto.dart';
 import 'package:inovathon_2022/core/model/enums/day_of_week_enum.dart';
 import 'package:inovathon_2022/ui/screen/seller_profile/components/title_divider.dart';
 import 'package:inovathon_2022/ui/screen/seller_profile/seller_schedule/seller_schedule_page.dart';
+import 'package:inovathon_2022/ui/shared/shared_button.dart';
+import 'package:inovathon_2022/ui/shared/shared_counter.dart';
 import 'package:inovathon_2022/ui/theme/colors.dart';
 
 class SellerScheduleWidget extends State<SellerSchedulePage> {
@@ -25,13 +24,12 @@ class SellerScheduleWidget extends State<SellerSchedulePage> {
       children: [
         Flexible(
           child: SizedBox(
-            height: 85,
+            height: 90,
             child: ListView.builder(
               itemCount: DayOfWeekEnum.values.length,
               scrollDirection: Axis.horizontal,
               shrinkWrap: true,
-              itemBuilder: (context, index) =>
-                  getDayOfWeek(DayOfWeekEnum.values[index]),
+              itemBuilder: (context, index) => getDayOfWeek(DayOfWeekEnum.values[index]),
             ),
           ),
         ),
@@ -135,6 +133,7 @@ class SellerScheduleWidget extends State<SellerSchedulePage> {
                 padding: const EdgeInsets.all(10),
                 child: Text(
                   to24hours(timeDTO.time),
+                  textAlign: TextAlign.center,
                   style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
                 ),
               ))),
@@ -150,29 +149,29 @@ class SellerScheduleWidget extends State<SellerSchedulePage> {
   getPeriodDivider(String dividerTitle, List<ScheduleTimeDTO> timesPeriods) {
     return [
       Padding(
-        padding: const EdgeInsets.only(left: 10),
+        padding: const EdgeInsets.only(left: 10, bottom: 0),
         child: TitleDivider(
           title: dividerTitle,
           endDivider: 270,
         ),
       ),
-      Expanded(
-        child: GridView.builder(
-          itemCount: timesPeriods.length,
-          shrinkWrap: true,
-          itemBuilder: (context, index) => getHourTag(timesPeriods[index]),
-          physics: const NeverScrollableScrollPhysics(),
-          gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-              maxCrossAxisExtent: 100, mainAxisExtent: 60, crossAxisSpacing: 5),
-        ),
+      GridView.builder(
+        itemCount: timesPeriods.length,
+        shrinkWrap: true,
+        itemBuilder: (context, index) => getHourTag(timesPeriods[index]),
+        physics: const NeverScrollableScrollPhysics(),
+        gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+            maxCrossAxisExtent: 120, mainAxisExtent: 60, crossAxisSpacing: 5),
       ),
+      const SizedBox(
+        height: 10,
+      )
     ];
   }
 }
 
-
 class ProductCheckoutModal extends StatefulWidget {
-  ProductCheckoutModal(this.productList);
+  ProductCheckoutModal(this.productList, {super.key});
 
   List<ProductCheckoutDTO> productList;
 
@@ -230,19 +229,18 @@ class _ProductCheckoutModalState extends State<ProductCheckoutModal> {
                                 const SizedBox(width: 10),
                                 product.isOrganic
                                     ? Container(
-                                  decoration: BoxDecoration(
-                                    borderRadius:
-                                    BorderRadius.circular(10),
-                                    color: Colors.lightGreen,
-                                  ),
-                                  padding: const EdgeInsets.all(5),
-                                  child: Text(
-                                    "Orgânico",
-                                    style: TextStyle(
-                                      color: Colors.green[900],
-                                    ),
-                                  ),
-                                )
+                                        decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(10),
+                                          color: Colors.lightGreen,
+                                        ),
+                                        padding: const EdgeInsets.all(5),
+                                        child: Text(
+                                          "Orgânico",
+                                          style: TextStyle(
+                                            color: Colors.green[900],
+                                          ),
+                                        ),
+                                      )
                                     : Container(),
                               ],
                             ),
@@ -291,4 +289,3 @@ class _ProductCheckoutModalState extends State<ProductCheckoutModal> {
     );
   }
 }
-

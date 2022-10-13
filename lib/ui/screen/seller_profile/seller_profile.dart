@@ -16,8 +16,7 @@ class SellerProfile extends StatefulWidget {
   State<SellerProfile> createState() => _SellerProfileState();
 }
 
-class _SellerProfileState extends State<SellerProfile>
-    with TickerProviderStateMixin {
+class _SellerProfileState extends State<SellerProfile> with TickerProviderStateMixin {
   late TabController _controller;
 
   @override
@@ -79,7 +78,9 @@ class _SellerProfileState extends State<SellerProfile>
                             Text(
                               "Manoel Gomes", // TODO - corrigir overflow
                               style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 33),
+                                  overflow: TextOverflow.ellipsis,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 25),
                             ),
                             SizedBox(
                               width: 33,
@@ -112,10 +113,7 @@ class _SellerProfileState extends State<SellerProfile>
               Expanded(
                 child: TabBarView(
                   controller: _controller,
-                  children: [
-                    const SellerDetailsPage(),
-                    SellerSchedulePage(schedule: schedules)
-                  ],
+                  children: [const SellerDetailsPage(), SellerSchedulePage(schedule: schedules)],
                 ),
               ),
             ],
