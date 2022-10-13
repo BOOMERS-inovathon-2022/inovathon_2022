@@ -12,7 +12,7 @@ class ProductDetailWidget extends State<ProductDetailPage> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(),
-        body: Column(
+        body: ListView(
           children: [
             const Image(
               image: NetworkImage(
