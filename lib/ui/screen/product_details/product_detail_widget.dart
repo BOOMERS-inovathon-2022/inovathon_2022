@@ -88,20 +88,18 @@ class ProductDetailWidget extends State<ProductDetailPage> {
                 alignment: Alignment.bottomCenter,
                 child: SharedButton(
                   text: 'Ver fornecedores',
-                  onClickAction: () =>
-                      showModalBottomSheet(
-                        isDismissible: false,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                        ),
-                        isScrollControlled: true,
-                        context: context,
-                        builder: (context) =>
-                            FractionallySizedBox(
-                              heightFactor: 0.85,
-                              child: SellerProductList(),
-                            ),
-                      ),
+                  onClickAction: () => showModalBottomSheet(
+                    isDismissible: false,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    isScrollControlled: true,
+                    context: context,
+                    builder: (context) => FractionallySizedBox(
+                      heightFactor: 0.85,
+                      child: SellerProductList(),
+                    ),
+                  ),
                 ),
               ),
             ),
@@ -143,6 +141,7 @@ class SellerProductList extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 20),
                     child: ListTile(
+                      dense: true,
                       leading: const CircleAvatar(
                         child: Icon(Icons.person),
                       ),
@@ -153,27 +152,25 @@ class SellerProductList extends StatelessWidget {
                           fontSize: 18,
                         ),
                       ),
-                      subtitle: true
-                          ? Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: Colors.lightGreen,
-                        ),
-                        padding: const EdgeInsets.all(5),
-                        child: Text(
-                          "Orgânico",
-                          style: TextStyle(
-                            color: Colors.green[900],
+                      subtitle: Align(
+                        alignment: Alignment.centerLeft,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Colors.lightGreen,
+                          ),
+                          padding: const EdgeInsets.symmetric(horizontal: 5),
+                          child: Text(
+                            "Orgânico",
+                            style: TextStyle(color: Colors.green[900], fontSize: 11),
                           ),
                         ),
-                      )
-                          : null,
+                      ),
                       trailing: IconButton(
-                        onPressed: () =>
-                            CustomRouter.pushPage(
-                              context,
-                              const ChatPage(),
-                            ),
+                        onPressed: () => CustomRouter.pushPage(
+                          context,
+                          const ChatPage(),
+                        ),
                         icon: const Icon(Icons.chat),
                       ),
                     ),
