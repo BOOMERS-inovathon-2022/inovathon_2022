@@ -8,21 +8,12 @@ class HomeWidget extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[100],
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        shadowColor: Colors.transparent,
-        elevation: 0,
         actions: [
-          CircleAvatar(
-            backgroundColor: Colors.white,
-            radius: 30,
-            child: IconButton(
-              onPressed: () => null,
-              icon: const Icon(
-                Icons.search,
-              ),
-              color: Colors.black,
+          IconButton(
+            onPressed: () => null,
+            icon: const Icon(
+              Icons.search,
             ),
           ),
         ],
@@ -37,7 +28,7 @@ class HomeWidget extends State<HomePage> {
               child: Ink(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
-                  color: Colors.green[200],
+                  color: Colors.green[50],
                 ),
                 width: double.infinity,
                 height: 150,

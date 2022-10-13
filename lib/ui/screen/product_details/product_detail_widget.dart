@@ -11,6 +11,7 @@ class ProductDetailWidget extends State<ProductDetailPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(),
         body: Column(
           children: [
             const Image(
