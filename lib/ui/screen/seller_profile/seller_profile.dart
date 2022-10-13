@@ -16,7 +16,8 @@ class SellerProfile extends StatefulWidget {
   State<SellerProfile> createState() => _SellerProfileState();
 }
 
-class _SellerProfileState extends State<SellerProfile> with TickerProviderStateMixin {
+class _SellerProfileState extends State<SellerProfile>
+    with TickerProviderStateMixin {
   late TabController _controller;
 
   @override
@@ -27,95 +28,98 @@ class _SellerProfileState extends State<SellerProfile> with TickerProviderStateM
 
   List<SellerSchedule> schedules = [
     SellerSchedule(
-        dayOfWeek: DayOfWeekEnum.MON,
-        isTaken: false,
-        userSeller: null,
-        workingTime: TimeInterval(
-            startTime: const TimeOfDay(hour: 9, minute: 0),
-            endTime: const TimeOfDay(hour: 20, minute: 0)),
-        deliveryMinutesCD: 50,
-        breakTimes: [TimeInterval(
-            startTime: const TimeOfDay(hour: 10, minute: 0),
-            endTime: const TimeOfDay(hour: 13, minute: 0))])
+      dayOfWeek: DayOfWeekEnum.MON,
+      isTaken: false,
+      userSeller: null,
+      workingTime: TimeInterval(
+        startTime: const TimeOfDay(hour: 9, minute: 0),
+        endTime: const TimeOfDay(hour: 20, minute: 0),
+      ),
+      deliveryMinutesCD: 50,
+      breakTimes: [
+        TimeInterval(
+          startTime: const TimeOfDay(hour: 10, minute: 0),
+          endTime: const TimeOfDay(hour: 13, minute: 0),
+        )
+      ],
+    )
   ];
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(),
         body: Padding(
           padding: const EdgeInsets.symmetric(vertical: 10),
-          child: Column(mainAxisSize: MainAxisSize.min, children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 20),
-              child: Row(
-                // mainAxisSize: MainAxisSize.min,
-                children: [
-                  const SizedBox(
-                    width: 110,
-                    height: 110,
-                    child: CircleAvatar(
-                      backgroundImage: NetworkImage(
-                        "https://i1.sndcdn.com/artworks-lq81iGn8UqOkdpTt-IawAKw-t500x500.jpg",
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 20),
+                child: Row(
+                  children: [
+                    const SizedBox(
+                      width: 110,
+                      height: 110,
+                      child: CircleAvatar(
+                        backgroundImage: NetworkImage(
+                          "https://i1.sndcdn.com/artworks-lq81iGn8UqOkdpTt-IawAKw-t500x500.jpg",
+                        ),
                       ),
                     ),
-                  ),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: const [
-                          Text(
-                            "Manoel Gomes", // TODO - corrigir overflow
-                            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 33),
-                          ),
-                          SizedBox(
-                            width: 33,
-                            // height: 20,
-                            child: Image(
-                              image: NetworkImage(
-                                "https://cdn-icons-png.flaticon.com/512/7595/7595571.png",
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: const [
+                            Text(
+                              "Manoel Gomes", // TODO - corrigir overflow
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 33),
+                            ),
+                            SizedBox(
+                              width: 33,
+                              // height: 20,
+                              child: Image(
+                                image: NetworkImage(
+                                  "https://cdn-icons-png.flaticon.com/512/7595/7595571.png",
+                                ),
                               ),
                             ),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: const [
-                          SellerTag(
-                            tag: "Produtos Orgânicos",
-                            color: Color.fromARGB(255, 145, 224, 127),
-                          ),
-                          SizedBox(width: 5),
-                          SellerTag(
-                            tag: "Blue Pen",
-                            color: Color.fromARGB(255, 113, 151, 236),
-                          )
-                        ],
-                      )
-                    ],
-                  )
-                ],
+                          ],
+                        ),
+                        Row(
+                          children: const [
+                            SellerTag(
+                              tag: "Produtos Orgânicos",
+                              color: Color.fromARGB(255, 145, 224, 127),
+                            ),
+                          ],
+                        )
+                      ],
+                    )
+                  ],
+                ),
               ),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            tabBar(),
-            Expanded(
-              child: TabBarView(
-                controller: _controller,
-                children: [const SellerDetailsPage(), SellerSchedulePage(schedule: schedules)],
+              const SizedBox(
+                height: 10,
               ),
-            ),
-
-            // SizedBox(
-            //   height: 40,
-            // )
-          ]),
+              tabBar(),
+              Expanded(
+                child: TabBarView(
+                  controller: _controller,
+                  children: [
+                    const SellerDetailsPage(),
+                    SellerSchedulePage(schedule: schedules)
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

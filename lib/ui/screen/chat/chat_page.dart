@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../../theme/custom_router.dart';
+import '../seller_profile/seller_profile.dart';
+
 class ChatPage extends StatefulWidget {
   const ChatPage({Key? key}) : super(key: key);
 
@@ -16,15 +19,23 @@ class _ChatPageState extends State<ChatPage> {
         toolbarHeight: 100,
         title: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
-            CircleAvatar(
-              radius: 30,
-              backgroundImage: NetworkImage(
-                'https://pbs.twimg.com/media/ETF0IfwWkAEPlas.jpg', //TODO imagem de perfil do vendedor
+          children: [
+            InkWell(
+              onTap: () => CustomRouter.pushPage(
+                context,
+                const SellerProfile(
+                  seller: null,
+                ),
+              ),
+              child: const CircleAvatar(
+                radius: 30,
+                backgroundImage: NetworkImage(
+                  'https://i1.sndcdn.com/artworks-lq81iGn8UqOkdpTt-IawAKw-t500x500.jpg', //TODO imagem de perfil do vendedor
+                ),
               ),
             ),
-            SizedBox(width: 15),
-            Text(
+            const SizedBox(width: 15),
+            const Text(
               'Jonas', //TODO nome do vendedor
               style: TextStyle(
                 color: Colors.white,
@@ -103,7 +114,7 @@ class MessageContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(12),
+      padding: const EdgeInsets.all(12),
       child: Column(
         crossAxisAlignment:
             isSender ? CrossAxisAlignment.end : CrossAxisAlignment.start,
