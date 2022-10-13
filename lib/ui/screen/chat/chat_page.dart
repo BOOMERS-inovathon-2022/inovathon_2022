@@ -7,7 +7,6 @@ class ChatPage extends StatefulWidget {
   State<ChatPage> createState() => _ChatPageState();
 }
 
-
 class _ChatPageState extends State<ChatPage> {
   @override
   Widget build(BuildContext context) {
@@ -17,52 +16,70 @@ class _ChatPageState extends State<ChatPage> {
         toolbarHeight: 100,
         title: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+          children: const [
             CircleAvatar(
               radius: 30,
-              child:
-              Image.network('https://pbs.twimg.com/media/ETF0IfwWkAEPlas.jpg'),
+              backgroundImage: NetworkImage(
+                'https://pbs.twimg.com/media/ETF0IfwWkAEPlas.jpg', //TODO imagem de perfil do vendedor
+              ),
             ),
             SizedBox(width: 15),
-            Text('Jonas',style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+            Text(
+              'Jonas', //TODO nome do vendedor
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
           ],
         ),
       ),
       body: SafeArea(
-        child: Column( 
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Expanded(
               child: ListView(
                 children: [
-                MessageContainer( content: 'Olá, qual o preço do Alface?', isSender: true),
-                  MessageContainer( content: 'A Alface está 5 reais ', isSender: false),
-                  MessageContainer( content: 'Ainda há 4 unidades para hoje', isSender: false),
-                  MessageContainer( content: 'Opa!, eu gostaria de 2 Por Favor', isSender: true),
-                  MessageContainer( content: 'Das 14 as 15 ?', isSender: true),
-                  MessageContainer( content: 'Sim', isSender: false),
-                  MessageContainer( content: 'Obrigada!', isSender: true),
-
-              ],),
+                  MessageContainer(
+                      content: 'Olá, qual o preço da Alface?', isSender: true),
+                  MessageContainer(
+                      content: 'A Alface está 5 reais!', isSender: false),
+                  MessageContainer(
+                      content: 'Ainda há 4 unidades para hoje.',
+                      isSender: false),
+                  MessageContainer(
+                      content: 'Opa, eu gostaria de 2 unidades por favor.',
+                      isSender: true),
+                  MessageContainer(content: 'Das 14 as 15?', isSender: true),
+                  MessageContainer(content: 'Sim', isSender: false),
+                  MessageContainer(content: 'Obrigada!', isSender: true),
+                ],
+              ),
             ),
-            Container(
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: TextField(
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(borderRadius: BorderRadius.circular(50)),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: TextField(
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(50),
                         ),
                       ),
                     ),
                   ),
-                  TextButton(onPressed: ()=> null, child: Icon(Icons.send))
-                ],
-              ),
+                ),
+                TextButton(
+                  onPressed: () => null,
+                  child: const Icon(
+                    Icons.send,
+                  ),
+                )
+              ],
             )
           ],
         ),
@@ -72,11 +89,12 @@ class _ChatPageState extends State<ChatPage> {
 }
 
 class MessageContainer extends StatelessWidget {
-  MessageContainer({ required this.content, required this.isSender});
+  MessageContainer({required this.content, required this.isSender});
+
   final String content;
   final bool isSender;
 
-  final BorderRadius senderBorder = BorderRadius.only(
+  final BorderRadius senderBorder = const BorderRadius.only(
     bottomLeft: Radius.circular(15),
     bottomRight: Radius.circular(15),
     topLeft: Radius.circular(15),
@@ -87,18 +105,25 @@ class MessageContainer extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.all(12),
       child: Column(
-        crossAxisAlignment: isSender ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+        crossAxisAlignment:
+            isSender ? CrossAxisAlignment.end : CrossAxisAlignment.start,
         children: [
           Material(
             elevation: 6,
-            borderRadius:
-            isSender ? senderBorder : senderBorder.copyWith(topLeft: Radius.zero, topRight: Radius.circular(15)),
+            borderRadius: isSender
+                ? senderBorder
+                : senderBorder.copyWith(
+                    topLeft: Radius.zero,
+                    topRight: const Radius.circular(
+                      15,
+                    ),
+                  ),
             color: isSender ? Colors.lightGreen : Colors.lightGreen[800],
             child: Padding(
-              padding: EdgeInsets.symmetric(vertical: 15, horizontal: 25),
+              padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 25),
               child: Text(
                 content,
-                style: TextStyle(color: Colors.white, fontSize: 16),
+                style: const TextStyle(color: Colors.white, fontSize: 16),
               ),
             ),
           ),
