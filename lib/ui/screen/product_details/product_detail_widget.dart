@@ -183,7 +183,7 @@ class SellerProductList extends StatelessWidget {
                   ),
                 ],
               );
-            },),
+            }),
           ),
         )
       ],
