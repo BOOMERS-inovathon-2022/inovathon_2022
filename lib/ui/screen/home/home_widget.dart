@@ -9,6 +9,12 @@ class HomeWidget extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        title: const Text(
+          'Início',
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
         actions: [
           IconButton(
             onPressed: () => null,
@@ -62,7 +68,7 @@ class HomeWidget extends State<HomePage> {
                     maxCrossAxisExtent: 200,
                     mainAxisExtent: 190,
                     crossAxisSpacing: 10,
-                    mainAxisSpacing: 10
+                    mainAxisSpacing: 10,
                   ),
                   itemBuilder: (context, index) {
                     return InkWell(

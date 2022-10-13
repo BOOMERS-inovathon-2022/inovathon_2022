@@ -11,7 +11,14 @@ class ProductDetailWidget extends State<ProductDetailPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(),
+        appBar: AppBar(
+          title: const Text(
+            'Detalhes do Produto',
+            style: TextStyle(
+              color: Colors.white,
+            ),
+          ),
+        ),
         body: ListView(
           children: [
             const Image(
@@ -146,7 +153,7 @@ class SellerProductList extends StatelessWidget {
                         child: Icon(Icons.person),
                       ),
                       title: const Text(
-                        "Markus Chico",
+                        "Manoel Gomes",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 18,
@@ -162,7 +169,8 @@ class SellerProductList extends StatelessWidget {
                           padding: const EdgeInsets.symmetric(horizontal: 5),
                           child: Text(
                             "Orgânico",
-                            style: TextStyle(color: Colors.green[900], fontSize: 11),
+                            style: TextStyle(
+                                color: Colors.green[900], fontSize: 11),
                           ),
                         ),
                       ),
