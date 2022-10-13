@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:inovathon_2022/ui/screen/chat/chat_page.dart';
+import 'package:inovathon_2022/ui/screen/categories/categories_page.dart';
 import 'package:inovathon_2022/ui/screen/home/home_page.dart';
 import 'package:inovathon_2022/ui/screen/seller_profile/seller_profile.dart';
 
@@ -12,7 +12,11 @@ class CustomBottomNavigationBar extends StatefulWidget {
 }
 
 class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
-  var pages = [HomePage(), const ChatPage(), const SellerProfile(seller: null)];
+  var pages = [
+    HomePage(),
+    const CategoriesPage(),
+    const SellerProfile(seller: null)
+  ];
   int current_index = 0;
 
   @override

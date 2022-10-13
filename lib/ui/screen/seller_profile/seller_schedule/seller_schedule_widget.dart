@@ -91,7 +91,7 @@ class SellerScheduleWidget extends State<SellerSchedulePage> {
     bool isInList = widget.schedule.indexWhere((element) => element.dayOfWeek == dayOfWeek) != (-1);
 
     return Container(
-      width: 75,
+      width: 80,
       margin: const EdgeInsets.all(10),
       decoration:
           BoxDecoration(color: kBackgroundGreyColor, borderRadius: BorderRadius.circular(10)),
@@ -179,7 +179,7 @@ class SellerScheduleWidget extends State<SellerSchedulePage> {
             child: Text(
               to24hours(timeDTO.time),
               textAlign: TextAlign.center,
-              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
+              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
             ),
           ),
         ),
