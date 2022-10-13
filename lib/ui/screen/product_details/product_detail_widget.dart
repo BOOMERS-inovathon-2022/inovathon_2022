@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:inovathon_2022/core/entity/user_seller.dart';
 import 'package:inovathon_2022/ui/screen/product_details/product_detail_page.dart';
 
 import '../../shared/shared_button.dart';
@@ -84,13 +85,98 @@ class ProductDetailWidget extends State<ProductDetailPage> {
                 alignment: Alignment.bottomCenter,
                 child: SharedButton(
                   text: 'Ver fornecedores',
-                  onClickAction: () => null,
+                  onClickAction: () => showModalBottomSheet(
+                    isDismissible: false,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    isScrollControlled: true,
+                    context: context,
+                    builder: (context) => FractionallySizedBox(
+                      heightFactor: 0.85,
+                      child: SellerProductList(),
+                    ),
+                  ),
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),
+    );
+  }
+}
+
+class SellerProductList extends StatelessWidget {
+  SellerProductList({this.sellerList});
+
+  List<UserSeller>? sellerList;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        const Padding(
+          padding: EdgeInsets.symmetric(vertical: 20),
+          child: Text(
+            "Fornecedores",
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 28,
+            ),
+          ),
+        ),
+        const Divider(height: 10),
+        Expanded(
+          child: ListView.builder(
+            itemCount: 8,
+            itemBuilder: ((context, index) {
+              return ListView(
+                physics: const NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 20),
+                    child: ListTile(
+                      leading: CircleAvatar(child: Icon(Icons.person)),
+                      title: const Text(
+                        "Markus Chico",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                        ),
+                      ),
+                      subtitle: true
+                          ? Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                color: Colors.lightGreen,
+                              ),
+                              padding: EdgeInsets.all(5),
+                              child: Text(
+                                "Orgânico",
+                                style: TextStyle(
+                                  color: Colors.green[900],
+                                ),
+                              ),
+                            )
+                          : null,
+                      trailing: IconButton(
+                        onPressed: () => null,
+                        icon: const Icon(Icons.chat),
+                      ),
+                    ),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    child: const Divider(height: 5),
+                  ),
+                ],
+              );
+            }),
+          ),
+        )
+      ],
     );
   }
 }
