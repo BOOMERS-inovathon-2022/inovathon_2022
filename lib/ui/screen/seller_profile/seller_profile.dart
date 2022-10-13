@@ -18,61 +18,67 @@ class _SellerProfileState extends State<SellerProfile> {
     return SafeArea(
       child: Scaffold(
         body: Padding(
-          padding: const EdgeInsets.only(left: 10.0, top: 20),
+          padding: const EdgeInsets.symmetric(vertical: 10),
           child: Column(mainAxisSize: MainAxisSize.min, children: [
-            Row(
-              // mainAxisSize: MainAxisSize.min,
-              children: [
-                const SizedBox(
-                  width: 110,
-                  height: 110,
-                  child: CircleAvatar(
-                    backgroundImage: NetworkImage(
-                      "https://i1.sndcdn.com/artworks-lq81iGn8UqOkdpTt-IawAKw-t500x500.jpg",
+            Padding(
+              padding: const EdgeInsets.only(left: 20),
+              child: Row(
+                // mainAxisSize: MainAxisSize.min,
+                children: [
+                  const SizedBox(
+                    width: 110,
+                    height: 110,
+                    child: CircleAvatar(
+                      backgroundImage: NetworkImage(
+                        "https://i1.sndcdn.com/artworks-lq81iGn8UqOkdpTt-IawAKw-t500x500.jpg",
+                      ),
                     ),
                   ),
-                ),
-                const SizedBox(
-                  width: 10,
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: const [
-                        Text(
-                          "Manoel Gomes",
-                          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 33),
-                        ),
-                        SizedBox(
-                          width: 33,
-                          // height: 20,
-                          child: Image(
-                            image: NetworkImage(
-                              "https://cdn-icons-png.flaticon.com/512/7595/7595571.png",
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: const [
+                          Text(
+                            "Manoel Gomes",
+                            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 33),
+                          ),
+                          SizedBox(
+                            width: 33,
+                            // height: 20,
+                            child: Image(
+                              image: NetworkImage(
+                                "https://cdn-icons-png.flaticon.com/512/7595/7595571.png",
+                              ),
                             ),
                           ),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      children: const [
-                        SellerTag(
-                          tag: "Produtos Orgânicos",
-                          color: Color.fromARGB(255, 145, 224, 127),
-                        ),
-                        SizedBox(width: 5),
-                        SellerTag(
-                          tag: "Blue Pen",
-                          color: Color.fromARGB(255, 113, 151, 236),
-                        )
-                      ],
-                    )
-                  ],
-                )
-              ],
+                        ],
+                      ),
+                      Row(
+                        children: const [
+                          SellerTag(
+                            tag: "Produtos Orgânicos",
+                            color: Color.fromARGB(255, 145, 224, 127),
+                          ),
+                          SizedBox(width: 5),
+                          SellerTag(
+                            tag: "Blue Pen",
+                            color: Color.fromARGB(255, 113, 151, 236),
+                          )
+                        ],
+                      )
+                    ],
+                  )
+                ],
+              ),
             ),
-            Expanded(child: SellerDetailsPage())
+            Expanded(child: SellerDetailsPage()),
+            SizedBox(
+              height: 40,
+            )
           ]),
         ),
       ),
