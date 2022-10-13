@@ -1,9 +1,9 @@
 class AppImages {
   // static String get appIcon => "assets/app-icon.png";
   //
-  // static String get foodTruck => "assets/food_truck.png";
-  //
-  // static String get hawkerKart => "assets/food_kart.png";
+  static String get lettuce => "assets/lettuce.png";
+
+  static String get onion => "assets/onion.png";
   //
   // static String get foodPlaceholder => "assets/food_placeholder.jpg";
   //
